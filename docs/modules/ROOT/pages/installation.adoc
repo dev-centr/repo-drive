@@ -1,43 +1,61 @@
 = Installation
 
-== Build
+== Download (recommended)
+
+Installers and portable zips ship from https://github.com/dev-centr/repo-drive/releases[GitHub Releases] on version tags (`v*`).
+
+* **Windows:** MSI (when produced) and/or portable zip — includes `repodrive-gui`, CLI, mount, tray, and shell helpers
+* **macOS / Linux:** portable zip (AppImage/dmg polish may follow)
+
+RepoDrive is a **standalone** product (own GUI + tray). It is **not** a panel inside the DevCentr desktop app.
+
+After install on Windows, nested Explorer menus and the `.repodrive` handle are registered automatically.
+
+== From source
 
 ----
 dub build --config=cli
+dub build --config=gui
+dub build --config=tray
 dub build --config=mount
 ----
 
-Place `repodrive` on your `PATH`.
+Place the binaries on your `PATH`, or open `repodrive-gui`.
 
-== Platform FUSE backends
+Installer authoring uses https://github.com/dev-centr/easy-installer[Ibex] — see `installer/INSTALLER.adoc`.
 
-=== Windows (WinFsp)
+== Dependencies (Equivalence Engine)
 
-. Install https://winfsp.dev/[WinFsp]
-. Rebuild mount with WinFsp headers:
-+
+Mount backends and forge CLIs are installed via the Equivalence Engine `cli` domain (`dev-centr/equivalence-rules-cli`):
+
 ----
-# Example (adjust paths)
-set REPODRIVE_HAVE_WINFSP=1
-dub build --config=mount -- --d-version=REPODRIVE_HAVE_WINFSP
+repodrive deps
+repodrive deps install
 ----
-. Mount to a drive letter or folder, e.g. `G:\RepoDrive`
 
-Without the SDK, `repodrive-mount` prints install instructions; use `repodrive ls` for virtual listings.
+Or in the GUI: *Settings → Install missing*. Tools include `winfsp`, `fuse3`, `macfuse`, `gh`, and `equivalence-engine` itself.
 
-=== macOS (macFUSE)
+== Windows (WinFsp)
 
-. `brew install macfuse` (or install from https://osxfuse.github.io/[macFUSE])
+. Install WinFsp (`repodrive deps install` or winget `WinFsp.WinFsp`)
+. Mount to a drive letter or folder, e.g. `G:\RepoDrive` (GUI *Mount* tab, or `repodrive-mount`)
+
+Without the SDK, `repodrive-mount` may print install instructions; use `repodrive ls` for virtual listings.
+
+== macOS (macFUSE)
+
+. `brew install --cask macfuse` (or `repodrive deps install`)
 . Allow the system extension if prompted
-. `repodrive mount /Volumes/RepoDrive`
+. Mount via GUI or `repodrive mount /Volumes/RepoDrive`
 
-=== Linux (libfuse3)
+== Linux (libfuse3)
 
-. Install `fuse3` / `libfuse3-dev` for your distro
-. `repodrive mount /mnt/repodrive`
+. Install `fuse3` / `libfuse3-dev` (`repodrive deps install`)
+. Mount via GUI or `repodrive mount /mnt/repodrive`
 
 == Shell context menus
 
-* Windows: `shell/windows/register-context-menu.ps1`
+* Windows: registered by the installer, or `shell/windows/register-context-menu.ps1` — nested *RepoDrive* menu
+* File-manager integration mode: GUI *Settings*, or folder right-click → *RepoDrive* → *File manager integration…*
 * Linux: copy `shell/linux/nautilus-open-in-issues-browser.sh` to Nautilus scripts
 * macOS: Automator Quick Action wrapping `shell/macos/open-in-issues-browser.sh`

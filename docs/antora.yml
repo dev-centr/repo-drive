@@ -1,6 +1,6 @@
 name: repo-drive
 title: RepoDrive
-version: '0.1'
+version: master
 start_page: ROOT:index.adoc
 nav:
 - modules/ROOT/nav.adoc

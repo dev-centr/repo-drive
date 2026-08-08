@@ -1,11 +1,53 @@
 = Usage
 
 ----
+repodrive about
+repodrive help
 repodrive schema-init
 repodrive add-repo owner/name
 repodrive mount
-repodrive open-issues owner/name
-repodrive login github.com
 ----
 
-Facet files under `issues/`, `pull-requests/`, and `discussions/` prefer live API data, then issues-browser index, then full backup when enabled for that repo.
+== Working tree model
+
+Edits under `tree/` are the **worktree overlay** (real paths, real extensions).
+Baselines (pre-local) are kept beside the overlay for comparison.
+The routed VCS (and forge CLI) owns history — RepoDrive does not reinvent commits in SQLite.
+
+== VCS toolbox (`meta.repodrive` handle)
+
+Extension **`.repodrive`**: product-owned analytics/metadata handle (SQLite under the hood).
+Named so a stray file in Explorer is obviously RepoDrive — not a mystery database or plaintext `.diff`.
+Basename `meta` keeps the role abstract: dirty index, forge route, toolbox entry — not a second copy of file bodies.
+
+Double-click opens toolbox analytics (alternative to stuffing every verb into the folder right-click menu).
+Backends follow `profiles/forge-profiles.sdl` (`vcs`, `cli`, `commit_via`).
+
+----
+repodrive toolbox analytics owner/name
+repodrive toolbox history owner/name
+repodrive toolbox baseline owner/name
+repodrive toolbox diff owner/name
+----
+
+== Help / About / bugs
+
+----
+repodrive about
+repodrive help
+----
+
+* Homepage: https://github.com/dev-centr/repo-drive
+* Docs: https://docs.devcentr.org/repo-drive/
+* Bug reports: https://github.com/dev-centr/repo-drive/issues
+
+Analytics reports also include these links.
+
+== Context menus (optional)
+
+`shell/windows/register-context-menu.ps1` registers RepoDrive VCS toolbox verbs + `.repodrive` Open With.
+Prefer the handle file when you can; keep menus if you like them more later.
+
+== Declared sizes
+
+`getattr` / `ls` use forge-declared sizes; `REPODRIVE_MAX_AUTO_OPEN_BYTES` caps auto-hydrate.

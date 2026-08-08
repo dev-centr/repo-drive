@@ -1,8 +1,19 @@
 = RepoDrive
 
-DevCentr RepoDrive mounts forge repositories as a read-only virtual drive. Repositories are the primary objects; host and organization appear only if your schema includes them.
+DevCentr RepoDrive mounts forge repositories as a virtual drive. Repositories are the primary objects; host and organization appear only if your schema includes them.
 
-== Related products
+This product ships a **standalone GUI and tray** — it is not a panel inside the DevCentr desktop app.
 
-* https://github.com/dev-centr/issues-browser[issues-browser] — metadata index cache and opt-in per-repo backup
-* https://github.com/dev-centr/forge-auth[forge-auth] — OAuth, PAT, and self-hosted credentials
+== Start here
+
+* xref:installation.adoc[Installation] — download installers from Releases, or build from source
+* xref:usage.adoc[Usage] — mount, catalog, `meta.repodrive` handle, toolbox
+* xref:schema.adoc[Schema] — customize `{host}/{owner}/{repo}` layout and facets
+* xref:about.adoc[About / help] — version, docs, and bug links
+
+== Related
+
+* https://github.com/dev-centr/repo-drive[Repository]
+* https://github.com/dev-centr/repo-drive/releases[Releases]
+* https://github.com/dev-centr/issues-browser[Issues Browser]
+* https://github.com/dev-centr/forge-auth[forge-auth]

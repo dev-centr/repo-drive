@@ -1,0 +1,36 @@
+= About / help
+
+== About
+
+----
+repodrive about
+----
+
+Shows product name, version, homepage, docs, and bug tracker.
+
+== Help
+
+----
+repodrive help
+----
+
+Command overview. Progressive help via `help.sdl` may grow later (ProHelp-style).
+
+== Bug reports
+
+https://github.com/dev-centr/repo-drive/issues
+
+Please include OS, mount backend (WinFsp / macFUSE / libfuse3), and `repodrive about` output.
+
+== Handle extension
+
+`.repodrive` on `meta.repodrive` means “RepoDrive analytics handle,” not a generic database or patch file.
+
+== Standalone GUI
+
+----
+repodrive-gui
+repodrive-tray
+----
+
+Full product shell (mount, catalog, schema, analytics, settings). Not embedded in DevCentr.
