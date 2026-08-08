@@ -1,0 +1,11 @@
+// Forge matchers for RepoDrive facets (aligned with issues-browser).
+forge "github" {
+    matcher r"github\.com"
+    cli "gh"
+    pulls_folder "pull-requests"
+}
+forge "gitlab" {
+    matcher r"gitlab\.com" r"gitlab\."
+    cli "glab"
+    pulls_folder "merge-requests"
+}

@@ -1,0 +1,5 @@
+= Changelog
+
+== 0.1.0 (2026-08-08)
+
+* Initial RepoDrive scaffold: SDL schema engine, sparse GitHub tree/blob cache, virtual facets, FUSE3/WinFsp mount shims, CLI, shell helpers for opening issues-browser.

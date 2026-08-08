@@ -1,0 +1,41 @@
+= DevCentr RepoDrive
+
+Read-only virtual filesystem that mounts forge repositories like a Drive: **repos are primary**; host and org are layout choices you control.
+
+== Features
+
+* Customizable folder schema (SDL) — insert `{host}`, flatten to `{repo}`, hide facets
+* Sparse git tree index with on-demand blob cache (no full clone by default)
+* Virtual facets: `tree/`, `issues/`, `pull-requests/`, `discussions/`, `meta/`, `docs/`
+* Opens a repo in https://github.com/dev-centr/issues-browser[issues-browser] for archived metadata
+* Auth via https://github.com/dev-centr/forge-auth[forge-auth] (OAuth, PAT, CLI, self-hosted)
+
+Write support is planned for a later major version.
+
+== Prerequisites
+
+* Windows: https://winfsp.dev/[WinFsp]
+* macOS: https://osxfuse.github.io/[macFUSE]
+* Linux: `libfuse3`
+
+== Build
+
+----
+dub build --config=cli
+dub build --config=mount
+----
+
+== Quick start
+
+----
+repodrive schema init
+repodrive mount G:\RepoDrive
+repodrive open-issues owner/repo
+repodrive login github.com
+----
+
+See link:docs/modules/ROOT/pages/index.adoc[docs] for schema reference and platform install notes.
+
+== Changelog
+
+link:CHANGELOG.adoc[CHANGELOG.adoc]

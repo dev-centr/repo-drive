@@ -1,0 +1,30 @@
+= Schema
+
+Mount layout is SDL under the config root (`REPODRIVE_ROOT` or platform default).
+
+----
+schema "default" {
+    path "{owner}/{repo}"
+
+    facet "tree" { enabled true }
+    facet "issues" { enabled true }
+    facet "pull-requests" { enabled true }
+    facet "discussions" { enabled true }
+    facet "meta" { enabled true }
+    facet "docs" { enabled true }
+}
+----
+
+== Tokens
+
+* `{host}` — forge host (`github.com`, self-hosted, …)
+* `{owner}` — user or org (nested GitLab groups flattened with `_` in paths)
+* `{repo}` — repository name
+
+Multi-forge users typically switch to `{host}/{owner}/{repo}`:
+
+----
+repodrive --set-path "{host}/{owner}/{repo}"
+----
+
+Refactor anytime; catalog entries are host/owner/name identities, not path strings.

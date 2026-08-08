@@ -1,0 +1,11 @@
+= Usage
+
+----
+repodrive schema-init
+repodrive add-repo owner/name
+repodrive mount
+repodrive open-issues owner/name
+repodrive login github.com
+----
+
+Facet files under `issues/`, `pull-requests/`, and `discussions/` prefer live API data, then issues-browser index, then full backup when enabled for that repo.

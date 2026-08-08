@@ -1,0 +1,19 @@
+// Default RepoDrive mount schema — repos are primary.
+// Tokens: {host} {owner} {repo}
+// Facets under each repo can be toggled.
+
+schema "default" {
+    path "{owner}/{repo}"
+
+    facet "tree" { enabled true }
+    facet "issues" { enabled true }
+    facet "pull-requests" { enabled true }
+    facet "discussions" { enabled true }
+    facet "meta" { enabled true }
+    facet "docs" { enabled true }
+}
+
+// Multi-forge example (uncomment / use `repodrive schema set-path`):
+// schema "with-host" {
+//     path "{host}/{owner}/{repo}"
+// }

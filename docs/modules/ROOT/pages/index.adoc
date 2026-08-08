@@ -1,0 +1,8 @@
+= RepoDrive
+
+DevCentr RepoDrive mounts forge repositories as a read-only virtual drive. Repositories are the primary objects; host and organization appear only if your schema includes them.
+
+== Related products
+
+* https://github.com/dev-centr/issues-browser[issues-browser] — metadata index cache and opt-in per-repo backup
+* https://github.com/dev-centr/forge-auth[forge-auth] — OAuth, PAT, and self-hosted credentials

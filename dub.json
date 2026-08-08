@@ -1,0 +1,45 @@
+{
+	"name": "repo-drive",
+	"description": "DevCentr RepoDrive — read-only virtual filesystem for forge repos with customizable schema and sparse fetch.",
+	"authors": ["Dev-Centr"],
+	"license": "MIT",
+	"copyright": "Copyright © 2026, Dev-Centr",
+	"homepage": "https://github.com/dev-centr/repo-drive",
+	"documentationURL": "https://docs.devcentr.org/repo-drive/",
+	"dependencies": {
+		"sdlang-d": "~>0.10.6",
+		"forge-auth": { "path": "../forge-auth" }
+	},
+	"configurations": [
+		{
+			"name": "cli",
+			"targetType": "executable",
+			"targetName": "repodrive",
+			"mainSourceFile": "source/app_cli.d",
+			"excludedSourceFiles": ["source/app_mount.d"]
+		},
+		{
+			"name": "mount",
+			"targetType": "executable",
+			"targetName": "repodrive-mount",
+			"mainSourceFile": "source/app_mount.d",
+			"excludedSourceFiles": ["source/app_cli.d"],
+			"sourceFiles-posix": ["native/fuse3_shim.c"],
+			"sourceFiles-windows": ["native/winfsp_fuse3_shim.c"],
+			"libs-linux": ["fuse3"],
+			"libs-osx": ["fuse"],
+			"versions": ["RepoDriveMount"]
+		},
+		{
+			"name": "library",
+			"targetType": "library",
+			"excludedSourceFiles": ["source/app_cli.d", "source/app_mount.d"]
+		}
+	],
+	"sourcePaths": ["source"],
+	"importPaths": ["source"],
+	"copyFiles": [
+		"schema.example.sdl",
+		"profiles/forge-profiles.sdl"
+	]
+}

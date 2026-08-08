@@ -1,0 +1,43 @@
+= Installation
+
+== Build
+
+----
+dub build --config=cli
+dub build --config=mount
+----
+
+Place `repodrive` on your `PATH`.
+
+== Platform FUSE backends
+
+=== Windows (WinFsp)
+
+. Install https://winfsp.dev/[WinFsp]
+. Rebuild mount with WinFsp headers:
++
+----
+# Example (adjust paths)
+set REPODRIVE_HAVE_WINFSP=1
+dub build --config=mount -- --d-version=REPODRIVE_HAVE_WINFSP
+----
+. Mount to a drive letter or folder, e.g. `G:\RepoDrive`
+
+Without the SDK, `repodrive-mount` prints install instructions; use `repodrive ls` for virtual listings.
+
+=== macOS (macFUSE)
+
+. `brew install macfuse` (or install from https://osxfuse.github.io/[macFUSE])
+. Allow the system extension if prompted
+. `repodrive mount /Volumes/RepoDrive`
+
+=== Linux (libfuse3)
+
+. Install `fuse3` / `libfuse3-dev` for your distro
+. `repodrive mount /mnt/repodrive`
+
+== Shell context menus
+
+* Windows: `shell/windows/register-context-menu.ps1`
+* Linux: copy `shell/linux/nautilus-open-in-issues-browser.sh` to Nautilus scripts
+* macOS: Automator Quick Action wrapping `shell/macos/open-in-issues-browser.sh`

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Action
+Name=Open in Issues Browser
+Icon=utilities-terminal
+# Nautilus/FileManager contract: %f is selected file/folder
+Exec=sh -c "repodrive open-issues \"%f\""
+MimeType=inode/directory;
