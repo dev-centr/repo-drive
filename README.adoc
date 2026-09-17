@@ -4,7 +4,7 @@ Read-only virtual filesystem that mounts forge repositories like a Drive: **repo
 
 == Features
 
-* Customizable folder schema (SDL) — insert `{host}`, flatten to `{repo}`, hide facets
+* Customizable folder schema (SDL) — insert `\{host}`, flatten to `\{repo}`, hide facets
 * Sparse git tree index with on-demand blob cache (no full clone by default)
 * Virtual facets: `tree/`, `issues/`, `pull-requests/`, `discussions/`, `meta/`, `docs/`
 * Opens a repo in https://github.com/dev-centr/issues-browser[issues-browser] for archived metadata

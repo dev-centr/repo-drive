@@ -38,7 +38,7 @@ repodrive help
 ----
 
 * Homepage: https://github.com/dev-centr/repo-drive
-* Docs: https://docs.devcentr.org/repo-drive/
+* Docs: https://docs.devcentr.org/tools/repo-drive/
 * Bug reports: https://github.com/dev-centr/repo-drive/issues
 
 Analytics reports also include these links.
