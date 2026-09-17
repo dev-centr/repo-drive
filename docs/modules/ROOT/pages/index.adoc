@@ -8,7 +8,7 @@ This product ships a **standalone GUI and tray** — it is not a panel inside th
 
 * xref:installation.adoc[Installation] — download installers from Releases, or build from source
 * xref:usage.adoc[Usage] — mount, catalog, `meta.repodrive` handle, toolbox
-* xref:schema.adoc[Schema] — customize `{host}/{owner}/{repo}` layout and facets
+* xref:schema.adoc[Schema] — customize `\{host}/\{owner}/\{repo}` layout and facets
 * xref:about.adoc[About / help] — version, docs, and bug links
 
 == Related
